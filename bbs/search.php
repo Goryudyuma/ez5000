@@ -22,7 +22,7 @@ $mysql = new MySQL($userName, $password, $database);
 if($mysql->connect_error) die("データベースの接続に失敗しました");
 
 // 掲示板ID取得
-if(!isset($_GET["id"]) && !is_array($_GET["id"])) die("ERROR01:IDがありません");
+if(!isset($_GET["id"]) || !is_array($_GET["id"])) die("ERROR01:IDがありません");
 $id = $_GET["id"];
 if(!preg_match("/^[a-zA-Z0-9]{1,16}$/", $id)) die("ERROR02:無効なIDです");
 
